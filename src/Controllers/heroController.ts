@@ -139,11 +139,9 @@ export const createHero = async (req: Request, res: Response) => {
         req.body;
 
     if (!nombre || !poder || !imagen_url) {
-        return res
-            .status(400)
-            .json({
-                error: "Faltan datos obligatorios (nombre, poder, imagen_url).",
-            });
+        return res.status(400).json({
+            error: "Faltan datos obligatorios (nombre, poder, imagen_url).",
+        });
     }
 
     try {
