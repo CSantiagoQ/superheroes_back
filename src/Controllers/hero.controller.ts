@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 // Importamos la instancia de Knex configurada
-import knex from '../../db/database';
+import knex from '../database';
 
 // Definiciones de tipos (ayudan a la seguridad de tipo con Knex)
 interface CatSuperheroe {

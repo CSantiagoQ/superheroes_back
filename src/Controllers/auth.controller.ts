@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import knex from '../../db/database';
+import knex from '../database';
 // Importa los tipos si es necesario, pero Knex trabaja directamente con objetos JS.
 // Por ahora, usamos 'any' para la estructura de la tabla si no tienes un tipo definido.
 // Si tu tabla se llama 'Users', puedes usar ese tipo.

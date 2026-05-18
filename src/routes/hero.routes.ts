@@ -7,8 +7,8 @@ import {
   updateHero,
   deleteHero,
   removeFavorite,
-} from '../Controllers/heroController';
-import { verifyToken } from '../Middlewares/authMiddleware';
+} from '../Controllers/hero.controller';
+import { verifyToken } from '../Middlewares/auth.middleware';
 
 const router = Router();
 
