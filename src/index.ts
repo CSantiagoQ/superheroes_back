@@ -22,7 +22,7 @@ const personas = [
   { id: 10, nombre: 'Jose Juan', edad: 27 },
 ];
 
-app.get('/', (req, res) => {
+app.get('/', (_req, res) => {
   res.send('<h1>!Bienvenido a mi API con Express y TypeScript</h1>');
 });
 
