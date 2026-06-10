@@ -7,6 +7,7 @@ import {
   updateHero,
   deleteHero,
   removeFavorite,
+  getSuperHeroe,
 } from '../Controllers/hero.controller';
 import { verifyToken } from '../Middlewares/auth.middleware';
 
@@ -14,6 +15,7 @@ const router = Router();
 
 // Rutas Públicas (Lectura)
 router.get('/catalog', getCatalog);
+router.get('/detalle/:id', getSuperHeroe);
 
 // Rutas Protegidas (Requieren Login)
 router.get('/favorites', verifyToken, getMyFavorites);

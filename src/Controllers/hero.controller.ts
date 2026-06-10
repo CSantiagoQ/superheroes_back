@@ -45,6 +45,37 @@ export const getCatalog = async (req: Request, res: Response) => {
   }
 };
 
+// Obtener un superheroe
+export const getSuperHeroe = async (req: Request, res: Response) => {
+  try {
+    const heroId = parseInt(req.params.id as string);
+
+    if (isNaN(heroId)) {
+      return res.status(400).json({
+        error: 'ID de héroe inválido',
+      });
+    }
+
+    const heroe = await knex<CatSuperheroe>('catsuperheroe')
+      .where({ id: heroId })
+      .first();
+
+    if (!heroe) {
+      return res.status(404).json({
+        error: 'Héroe no encontrado',
+      });
+    }
+
+    return res.json(heroe);
+  } catch (error) {
+    console.error('Error al obtener héroe:', error);
+
+    return res.status(500).json({
+      error: 'Error interno del servidor',
+    });
+  }
+};
+
 // Agregar a favoritos
 export const addFavorite = async (req: AuthRequest, res: Response) => {
   // Usamos req.userId que viene del middleware de autenticación
