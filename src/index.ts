@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import authRoutes from './routes/auth.routes';
 import heroRoutes from './routes/hero.routes';
+import cartRoutes from './routes/cart.routes';
+import orderRoutes from './routes/order.routes';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -44,6 +46,8 @@ app.get('/mul/:num1/:num2', (req, res) => {
 // Rutas
 app.use('/api/auth', authRoutes);
 app.use('/api/heroes', heroRoutes);
+app.use('/api/cart', cartRoutes);
+app.use('/api/orders', orderRoutes);
 app.listen(PORT, () => {
   console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
 });

@@ -22,6 +22,7 @@ export async function up(knex: Knex): Promise<void> {
     table.string('resistencia', 255);
     table.string('debilidad', 255);
     table.string('imagen_url', 255).notNullable();
+    table.decimal('precio', 10, 2).notNullable().defaultTo(0);
     table.timestamp('created_at').defaultTo(knex.fn.now());
   });
 

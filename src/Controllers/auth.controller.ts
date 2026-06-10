@@ -21,7 +21,6 @@ interface AuthRequest extends Request {
 /**
  * 📝 Registra un nuevo usuario usando Knex.
  */
-
 export const register = async (req: Request, res: Response) => {
   console.log('datos', req.body);
   const { nombre, email, password } = req.body;
@@ -70,7 +69,6 @@ export const register = async (req: Request, res: Response) => {
 /**
  * Autentica un usuario y emite un JWT usando Knex.
  */
-
 export const login = async (req: Request, res: Response) => {
   const { email, password } = req.body;
   console.log('datos del login:', req.body);
@@ -106,7 +104,6 @@ export const login = async (req: Request, res: Response) => {
 /**
  * Actualiza el perfil del usuario actual usando Knex.
  */
-
 export const updateUser = async (req: AuthRequest, res: Response) => {
   // El ID del usuario se obtiene del token verificado (middleware previo)
   const userId = req.userId;
