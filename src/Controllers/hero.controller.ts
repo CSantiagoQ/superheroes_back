@@ -11,6 +11,7 @@ interface CatSuperheroe {
   resistencia?: string;
   debilidad?: string;
   imagen_url: string;
+  precio: number;
   // Otros campos de la tabla
 }
 
@@ -137,12 +138,19 @@ export const removeFavorite = async (req: AuthRequest, res: Response) => {
 
 // Crear Superhéroe
 export const createHero = async (req: Request, res: Response) => {
-  const { nombre, poder, fortaleza, resistencia, debilidad, imagen_url } =
-    req.body;
+  const {
+    nombre,
+    poder,
+    fortaleza,
+    resistencia,
+    debilidad,
+    imagen_url,
+    precio,
+  } = req.body;
 
-  if (!nombre || !poder || !imagen_url) {
+  if (!nombre || !poder || !imagen_url || !precio) {
     return res.status(400).json({
-      error: 'Faltan datos obligatorios (nombre, poder, imagen_url).',
+      error: 'Faltan datos obligatorios (nombre, poder, imagen_url, precio).',
     });
   }
 
@@ -156,6 +164,7 @@ export const createHero = async (req: Request, res: Response) => {
         resistencia,
         debilidad,
         imagen_url,
+        precio,
       })
       .returning('*'); // Retorna el registro insertado
 
